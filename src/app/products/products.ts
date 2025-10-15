@@ -128,22 +128,26 @@ export class Products implements OnInit {
   }
 
   purchase() {
+    const total = this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const payload = {
       products: this.cart.map((item) => ({
         id: item.id,
         name: item.name,
         qty: item.quantity,
       })),
+      total,
     };
 
     console.log('paylod XD: ', JSON.stringify(payload));
 
     this.http
-      .post('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/cart', payload.products)
+      .post('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/cart', payload, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('IdToken')}` },
+      })
       .subscribe({
         next: (response) => {
-          console.log('response: ', response);
           alert('¡Compra realizada con éxito!');
+          window.location.href = '/products';
           this.cart = [];
           this.cartOpen = false;
         },
