@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
   ],
   templateUrl: './register.html',
   styleUrls: ['../../auth/login/login.scss'],
@@ -27,6 +29,7 @@ export class Register {
   password = '';
   phone = '';
   errorMsg = '';
+  countryCode = '+57';
   loading = false;
 
   constructor(private http: HttpClient) {}
@@ -34,12 +37,15 @@ export class Register {
   onSubmit() {
     this.errorMsg = '';
     this.loading = true;
+    console.log('Código país seleccionado:', this.countryCode);
+    const fullPhone = this.countryCode + this.phone.trim();
+    console.log('Número completo:', fullPhone);
     this.http
       .post<any>('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/register', {
         name: this.name,
         email: this.email,
         password: this.password,
-        phone: this.phone,
+        phone: fullPhone,
       })
       .subscribe({
         next: (response) => {

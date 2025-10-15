@@ -35,10 +35,29 @@
           <mat-error> La contraseña debe tener al menos 6 caracteres. </mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Teléfono</mat-label>
-          <input matInput [(ngModel)]="phone" name="phone" required />
-        </mat-form-field>
+
+        <div style="display: flex; gap: 12px" class="full-width">
+          <mat-form-field appearance="outline" style="width: 120px">
+            <mat-label>Código país</mat-label>
+            <mat-select [(ngModel)]="countryCode" name="countryCode" required>
+              <mat-option [value]="'+' + '57'">🇨🇴 (+57)</mat-option>
+              <mat-option [value]="'+' + '1'">🇺🇸 (+1)</mat-option>
+              <mat-option [value]="'+' + '52'">🇲🇽 (+52)</mat-option>
+              <!-- Agrega más opciones según necesidad -->
+            </mat-select>
+            @if (form.controls['countryCode']?.invalid && form.controls['countryCode']?.touched) {
+            <mat-error> Por favor selecciona el código de país. </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="flex: 1">
+            <mat-label>Teléfono</mat-label>
+            <input matInput [(ngModel)]="phone" name="phone" required />
+            @if (form.controls['phone']?.invalid && form.controls['phone']?.touched) {
+            <mat-error> Por favor ingresa un número de teléfono válido. </mat-error>
+            }
+          </mat-form-field>
+        </div>
 
         <button
           mat-raised-button
