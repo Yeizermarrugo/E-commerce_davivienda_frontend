@@ -151,7 +151,6 @@ export class Products implements OnInit {
       .subscribe({
         next: (response) => {
           alert('¡Compra realizada con éxito!');
-          window.location.href = '/products';
           this.cart = [];
           this.cartOpen = false;
           this.loadProducts();
