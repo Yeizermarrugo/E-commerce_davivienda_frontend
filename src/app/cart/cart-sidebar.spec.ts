@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CartSidebar } from './cart-sidebar';
+import { CartSidebar } from '../cart-sidebar';
 
 describe('CartSidebar', () => {
   let component: CartSidebar;

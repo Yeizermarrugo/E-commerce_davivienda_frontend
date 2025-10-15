@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
-import { CartSidebar } from '../cart-sidebar';
+import { CartSidebar } from '../cart/cart-sidebar';
 
 @Component({
   selector: 'app-products',
