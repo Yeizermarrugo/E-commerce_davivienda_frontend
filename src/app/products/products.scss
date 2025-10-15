@@ -180,14 +180,6 @@ mat-card-actions {
   }
 }
 
-@media (max-width: 400px) {
-  .user-info {
-    padding: 2px 2vw;
-    font-size: 0.77rem;
-    box-shadow: none;
-  }
-}
-
 .products-page {
   display: flex;
   flex-direction: column;
@@ -267,6 +259,41 @@ mat-card-actions {
   color: #1e3c72;
 }
 
+.cart-fab {
+  position: fixed;
+  top: 200px;
+  right: 36px;
+  background-color: #1e3c72;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  z-index: 2;
+
+  animation: floating 3s ease-in-out infinite;
+}
+
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -425px;
+  width: 400px;
+  height: 100vh;
+  z-index: 99;
+  background: #fff;
+  box-shadow: -3px 0 18px rgba(33, 66, 243, 0.12);
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  overflow-y: auto;
+
+  &.open {
+    right: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .products-list {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -326,22 +353,24 @@ mat-card-actions {
     padding: 2px 2vw;
     font-size: 0.77rem;
     box-shadow: none;
+    padding-bottom: 50px;
+    margin-bottom: auto;
   }
-}
-
-.cart-fab {
-  position: fixed;
-  top: 200px;
-  right: 36px;
-  background-color: #1e3c72;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  font-weight: 600;
-  z-index: 1;
-
-  animation: floating 3s ease-in-out infinite;
+  .logo {
+    top: 130px;
+  }
+  .loader {
+    margin-top: 20%;
+  }
+  .cart-fab {
+    top: auto;
+    bottom: 80px;
+    right: 18px;
+  }
+  .cart-modal {
+    height: 60vh;
+    right: -280px;
+  }
 }
 
 @keyframes floating {
@@ -364,25 +393,6 @@ mat-card-actions {
   padding: 0 6px;
   font-size: 1rem;
   font-weight: bold;
-}
-.cart-modal {
-  position: fixed;
-  top: 0;
-  right: -425px;
-  width: 400px;
-  height: 100vh;
-  z-index: 99;
-  background: #fff;
-  box-shadow: -3px 0 18px rgba(33, 66, 243, 0.12);
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  padding: 18px 20px;
-  overflow-y: auto;
-
-  &.open {
-    right: 0;
-  }
 }
 
 .cart-header {
@@ -426,7 +436,7 @@ mat-card-actions {
   }
   .cart-fab {
     right: 18px;
-    bottom: 18px;
+    bottom: 30px;
   }
 }
 
