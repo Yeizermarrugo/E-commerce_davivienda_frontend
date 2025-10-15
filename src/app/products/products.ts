@@ -34,6 +34,7 @@ export class Products implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.loadProducts();
     if (isPlatformBrowser(this.platformId)) {
       this.hasToken = !!localStorage.getItem('IdToken');
       const token = localStorage.getItem('IdToken');
@@ -47,6 +48,10 @@ export class Products implements OnInit {
       const storedCart = localStorage.getItem('cart');
       this.cart = storedCart ? JSON.parse(storedCart) : [];
     }
+  }
+
+  loadProducts() {
+    this.loading = true;
     this.http
       .get<any>('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/products')
       .subscribe({
@@ -149,6 +154,7 @@ export class Products implements OnInit {
           window.location.href = '/products';
           this.cart = [];
           this.cartOpen = false;
+          this.loadProducts();
         },
         error: (error) => {
           alert('Error al realizar la compra: ' + error.message);
