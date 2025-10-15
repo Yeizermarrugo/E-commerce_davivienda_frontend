@@ -42,7 +42,6 @@ export class Products implements OnInit {
         const decoded: any = jwtDecode(token);
         this.userName = decoded.name || decoded['cognito:username'] || '';
         this.userEmail = decoded.email || '';
-        // Otros claims que tenga el token
       }
 
       const storedCart = localStorage.getItem('cart');

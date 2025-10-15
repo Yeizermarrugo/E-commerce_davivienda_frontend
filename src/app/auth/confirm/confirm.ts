@@ -42,7 +42,6 @@ export class Confirm {
           alert('Confirmación exitosa');
           window.location.href = '/login';
           this.loading = false;
-          // Redirige o lógica adicional
         },
         error: (err) => {
           this.errorMsg = 'Error en la confirmación: ' + (err?.error?.message || err.message);
