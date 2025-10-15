@@ -153,7 +153,8 @@ export class Products implements OnInit {
           alert('¡Compra realizada con éxito!');
           this.cart = [];
           this.cartOpen = false;
-          this.loadProducts();
+          // this.loadProducts();
+          window.location.reload();
         },
         error: (error) => {
           alert('Error al realizar la compra: ' + error.message);
