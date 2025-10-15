@@ -53,7 +53,13 @@ export class Products implements OnInit {
   loadProducts() {
     this.loading = true;
     this.http
-      .get<any>('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/products')
+      .get<any>('https://e6j63pv6n2.execute-api.us-west-1.amazonaws.com/dev/products', {
+        headers: {
+          'Cache-Control': 'no-cache',
+          Pragma: 'no-cache',
+          Expires: '0',
+        },
+      })
       .subscribe({
         next: (data) => {
           this.products = data.data;
