@@ -1,6 +1,6 @@
-# E-Commerce Davivienda · Frontend
+# E-Commerce · Frontend
 
-¡Bienvenido a la tienda online simplificada de Davivienda! Esta aplicación Angular está diseñada para demostrar un flujo de compra funcional y seguro usando autenticación AWS Cognito, carrito de compras persistente, gestión de productos y un checkout intuitivo.
+¡Bienvenido a la tienda online simplificada de tecnologias! Esta aplicación Angular está diseñada para demostrar un flujo de compra funcional y seguro usando autenticación AWS Cognito, carrito de compras persistente, gestión de productos y un checkout intuitivo.
 
 ---
 
