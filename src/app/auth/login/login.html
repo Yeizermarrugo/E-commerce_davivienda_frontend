@@ -1,0 +1,44 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Bienvenido E-Commerce Davivienda</mat-card-title>
+      <mat-card-subtitle>Ingresa para continuar</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      @if (errorMsg) {
+      <mat-error>{{ errorMsg }}</mat-error>
+      }
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" autocomplete="off">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required email />
+          @if (loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched) {
+          <mat-error> Por favor ingresa un correo válido. </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            minlength="6"
+          />
+          @if (loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched) {
+          <mat-error> La contraseña debe tener al menos 6 caracteres. </mat-error>
+          }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="full-width" [disabled]="loginForm.invalid">
+          @if (loading) { Cargando... } @else { Ingresar }
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <a href="/register" class="register">¿No tienes cuenta?</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

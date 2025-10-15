@@ -1,0 +1,32 @@
+<div class="cart-modal" [class.open]="open">
+  <div class="cart-header">
+    <h3>🛒 Carrito</h3>
+    <button mat-icon-button (click)="closeCart()"><span aria-label="Cerrar">&#10005;</span></button>
+  </div>
+  <div *ngIf="cart.length === 0">El carrito está vacío</div>
+  <div class="cart-items" *ngIf="cart.length > 0">
+    <div class="cart-item" *ngFor="let item of cart">
+      <img [src]="item.image || 'assets/no-image.jpg'" alt="img" />
+      <div>
+        <div>{{ item.name }}</div>
+        <div>{{ item.price | currency : 'COP' : 'symbol-narrow' : '1.0-0' }}</div>
+        <div class="cart-controls">
+          <button class="quantity-btn" (click)="decreaseQuantity(item)">−</button>
+          <span class="quantity">{{ item.quantity }}</span>
+          <button class="quantity-btn" (click)="increaseQuantity(item)">+</button>
+          <button class="delete-btn" (click)="removeItem(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="cart-total">
+      <strong>Total: {{ total | currency : 'COP' }}</strong>
+    </div>
+    <button mat-raised-button color="primary" class="compra-btn" (click)="purchaseCart()">
+      Comprar todo
+    </button>
+  </div>
+</div>

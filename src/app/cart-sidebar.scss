@@ -1,0 +1,165 @@
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -425px; // Panel oculto inicialmente
+  width: 400px;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8fbfc, #f3f6fa 70%);
+  box-shadow: -3px 0 18px rgba(33, 66, 243, 0.1);
+  transition: right 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  overflow-y: auto;
+  border-radius: 26px 0 0 26px;
+
+  &.open {
+    right: 0; // Panel visible
+  }
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid #e0e0e0;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #163b6e;
+  }
+}
+
+.cart-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.cart-item > img {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #f1f1f1;
+  border: 1px solid #c8d7e1;
+}
+
+.cart-item > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.cart-controls .quantity-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3c72 70%, #2a5298 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30, 60, 114, 0.1);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cart-controls .quantity-btn:hover {
+  background: linear-gradient(135deg, #23376b 80%, #1e3c72 100%);
+  transform: scale(1.1);
+}
+
+.cart-controls .quantity {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: #173876;
+  font-size: 1.05rem;
+}
+
+.cart-controls .delete-btn {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 6px;
+  margin-left: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30, 60, 114, 0.1);
+  display: flex;
+  align-items: center;
+  transition: background 0.18s;
+}
+
+.cart-controls .delete-btn:hover {
+  background: #ffeaea;
+}
+
+.cart-controls .delete-btn mat-icon {
+  color: #cd2342;
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .cart-item > img {
+    width: 52px;
+    height: 38px;
+  }
+  .cart-controls .quantity-btn,
+  .cart-controls .delete-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .cart-modal {
+    padding: 3px 2vw;
+    border-radius: 16px 0 0 16px;
+    font-size: 0.92rem;
+  }
+  .cart-header h3 {
+    font-size: 0.93rem;
+  }
+}
+
+.cart-modal .empty {
+  text-align: center;
+  color: #444;
+  margin-top: 66px;
+  font-size: 1rem;
+}
+
+::ng-deep .compra-btn.mat-raised-button {
+  background: linear-gradient(90deg, #2176ff 45%, #21c1ff 100%) !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.12rem;
+  padding: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(33, 118, 255, 0.16);
+  width: 100%;
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+  transition: background 0.28s, transform 0.18s;
+  border: none !important;
+}
+
+::ng-deep .compra-btn.mat-raised-button:hover {
+  background: linear-gradient(90deg, #194a8c 65%, #2176ff 100%) !important;
+  transform: translateY(-2px) scale(1.03);
+}

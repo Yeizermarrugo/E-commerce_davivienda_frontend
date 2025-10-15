@@ -1,0 +1,40 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Confirmar cuenta</mat-card-title>
+      <mat-card-title>E-Commerce Davivienda</mat-card-title>
+      <mat-card-subtitle>Ingresa tu correo y código de confirmación</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      @if (errorMsg) {
+      <mat-error>{{ errorMsg }}</mat-error>
+      }
+      <form (ngSubmit)="onSubmit()" #confirmForm="ngForm" autocomplete="off">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required email />
+          @if (confirmForm.controls['email']?.invalid && confirmForm.controls['email']?.touched) {
+          <mat-error> Por favor ingresa un correo válido. </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Código de confirmación</mat-label>
+          <input matInput type="text" [(ngModel)]="code" name="code" required minlength="6" />
+          @if (confirmForm.controls['code']?.invalid && confirmForm.controls['code']?.touched) {
+          <mat-error> El código debe tener al menos 6 caracteres. </mat-error>
+          }
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="full-width"
+          [disabled]="confirmForm.invalid || loading"
+        >
+          @if (loading) { Verificando... } @else { Confirmar }
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

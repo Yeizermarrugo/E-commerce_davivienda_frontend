@@ -1,0 +1,71 @@
+<h1 class="logo">E-Commerce Davivienda</h1>
+<div class="user-info" *ngIf="hasToken">
+  <span class="user-emoji" role="img" aria-label="Usuario">👤</span>
+  <div class="user-details">
+    <span>Hola, {{ userName || 'Usuario' }}</span>
+    <small>Correo: {{ userEmail || 'no registrado' }}</small>
+    <!-- <button *ngIf="hasToken" matButton color="warn" (click)="logout()">Logout</button> -->
+    <a matButton="filled" (click)="logout()">Logout</a>
+       
+    <button *ngIf="!hasToken" mat-mini-button color="primary" (click)="goLogin()">Login</button>
+  </div>
+</div>
+<button class="cart-fab" mat-fab color="accent" (click)="cartOpen = true">
+  <mat-icon>shopping_cart</mat-icon>
+  <span class="cart-count" *ngIf="cart.length > 0">{{ cart.length }}</span>
+</button>
+<div *ngIf="notification" class="notification">
+  {{ notification }}
+</div>
+
+<app-cart-sidebar
+  [open]="cartOpen"
+  [cart]="cart"
+  (remove)="removeFromCart($event)"
+  (purchase)="purchase()"
+  (changeQuantity)="updateQuantity($event)"
+  (addToCartRequested)="addToCart($event)"
+  (close)="cartOpen = false"
+>
+</app-cart-sidebar>
+
+<h1 class="title">Catálogo de Productos</h1>
+<section class="products-page">
+  @if (loading) {
+  <div class="loader">Cargando productos...</div>
+  } @if (errorMsg) {
+  <div class="error">{{ errorMsg }}</div>
+  } @if (!loading && !errorMsg && products.length > 0) {
+  <div class="products-list">
+    @for (product of products; track product.id) {
+    <mat-card class="product-card">
+      <img
+        mat-card-image
+        [src]="product.image || 'assets/no-image.jpg'"
+        alt="Imagen de {{ product.name }}"
+      />
+
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.brand }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+        <span class="price">
+          {{ product.price | currency : 'COP' : 'symbol-narrow' : '1.0-0' }}
+        </span>
+        <span class="stock" [ngClass]="{ low: product.stock < 10 }">
+          Stock: {{ product.stock }}
+        </span>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCart(product)">Comprar</button>
+      </mat-card-actions>
+    </mat-card>
+
+    }
+  </div>
+  } @if (!loading && !errorMsg && products.length === 0) {
+  <div class="empty">No hay productos disponibles.</div>
+  }
+</section>

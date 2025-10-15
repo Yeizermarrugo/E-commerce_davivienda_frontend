@@ -1,59 +1,108 @@
-# ECommerce
+# E-Commerce Davivienda · Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+¡Bienvenido a la tienda online simplificada de Davivienda! Esta aplicación Angular está diseñada para demostrar un flujo de compra funcional y seguro usando autenticación AWS Cognito, carrito de compras persistente, gestión de productos y un checkout intuitivo.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologías utilizadas
 
-```bash
+- **Angular 17+** (standalone, signals, Angular Material)
+- **AWS Cognito** (autenticación segura)
+- **API REST**
+- **TypeScript**
+- **Material Design**
+- **Jest** (pruebas unitarias)
+- **Sólidos principios SOLID y DRY**, estructurado para crecimiento real y mantenibilidad
+
+---
+
+## 🎯 Funcionalidades principales
+
+- **Registro, login y confirmación de usuario seguro** con AWS Cognito
+- **Catálogo de productos** con visualización responsiva, ofertas y stock dinámico
+- **Carrito persistente**: gestiona y visualiza tus productos seleccionados antes de comprar
+- **Checkout sencillo** y validaciones exhaustivas de stock antes de cada compra
+- **CRUD para productos** (acceso de admin)
+- **Experiencia UX/UI profesional**: navegación fluida y atractiva
+- **Gestión de órdenes** para que los clientes sigan sus compras y los admins gestionen pedidos
+- **Notificaciones y feedback** claros en cada paso
+- **Código organizado por componentes, servicios y guardas** para alta reutilización y pruebas
+
+---
+
+## ⚡ Cómo iniciar el proyecto
+
+1. **Clona el repositorio**
+   git clone <https://github.com/Yeizermarrugo/E-commerce_davivienda_frontend.git>
+   cd tu-repo-ecommerce-frontend
+
+2. **Instala las dependencias**
+
+npm install
+
+3. **Configura las variables de entorno**
+
+- Crea un archivo `.env` si necesitas endpoints custom o variables para tu entorno
+
+4. **Corre la aplicación en modo desarrollo**
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+5. **Accede a la app en** `http://localhost:4200`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📦 Scripts útiles
 
-```bash
-ng generate component component-name
-```
+- `ng serve` — Modo desarrollo
+- `ng build` — Compilar para producción
+- `npm test` — Ejecutar pruebas unitarias con Jest
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🔒 Autenticación robusta con AWS Cognito
 
-## Building
+- Registro, login, confirm y recuperación de contraseña
+- Tokens JWT firmados y almacenamiento seguro en localStorage
+- Validación de cuenta por correo y flujos protegidos para usuarios y admins
+- Desconexión inmediata con feedback
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🛒 Funcionalidad de carrito y checkout
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Añade, elimina y actualiza cantidades fácilmente
+- Sincronización automática con localStorage entre sesiones
+- Validaciones de stock y feedback instantáneo
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📃 Principios y buenas prácticas
 
-```bash
-ng test
-```
+- **Principios SOLID:** Componentes y servicios desacoplados, responsabilidades claras
+- **DRY:** Reutilización máxima de lógica, helpers y UI
+- **Arquitectura modular**: futuro-proof y lista para escalar con nuevas features
+- **Pruebas unitarias:** ejemplos de pruebas Jest en la carpeta `/__tests__/`
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🧑‍💻 Sustentación técnica
 
-```bash
-ng e2e
-```
+- El código sigue convenciones modernas Angular y estructura de carpetas clara
+- Feedback instantáneo al usuario en eventos clave: login, registro, errores
+- Componentes standalone y signals maximizan performance y mantenibilidad
+- Código preparado para internacionalización y futuras integraciones cloud
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## ⛑️ Contacto, soporte y sugerencias
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+¿Dudas, sugerencias o quieres colaborar?  
+Contáctanos en [tu-email@dominio.com] o abre un issue en el repositorio.
+
+---
+
+¡Gracias por revisar y usar este proyecto!  
+¿Listo para probarlo o presentarlo? ¡Es tuyo!
+
+---

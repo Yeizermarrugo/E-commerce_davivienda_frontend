@@ -1,0 +1,54 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #69b7f0, #1e3c72);
+  padding: 16px;
+}
+
+.login-card {
+  width: 400px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(29, 53, 87, 0.5);
+  background-color: #ffffffdd;
+  backdrop-filter: blur(8px);
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #1e3c72;
+  text-align: center;
+}
+
+mat-card-subtitle {
+  text-align: center;
+  color: #4a6fa5;
+  margin-bottom: 12px;
+}
+
+button.mat-raised-button {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.forgot-password {
+  color: #1e3c72;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #69b7f0;
+}
